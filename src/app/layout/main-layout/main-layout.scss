@@ -8,10 +8,25 @@
 .navbar {
   background: #00395d  !important;
 }
+
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 87vh;
+  display: flex;
+  flex-direction: column;
+}
 .container {
   height: auto;
-  max-width: 1500px;
+  max-width: 1600px;
   max-height: 1000px;
   overflow-x: auto;   // horizontal scroll
-  max-height: 600px;  // optional: vertical scroll with sticky headers
+  min-height: 600px;  // optional: vertical scroll with sticky headers
+  min-width: none;
+  flex: 1 0 auto;
+  min-height: 0;
+}
+footer {
+  flex-shrink: 0;
 }

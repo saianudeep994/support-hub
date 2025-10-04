@@ -1,13 +1,18 @@
-<ag-grid-angular
-  style="width: 100%; height: 400px;"
-
+<ag-grid-angular 
+  style="width: 100%; height: 90%;"
+  class="ag-theme-quartz"
   [rowData]="rowData"
   [columnDefs]="columnDefs"
+  [rowHeight]="32"
+  [headerHeight]="32"
   [defaultColDef]="defaultColDef"
   [animateRows]="true"
-  [pagination]="true"
-  *ngIf="showAssignedRequestsTable" >
-</ag-grid-angular> 
+  [pagination]="true" 
+  [paginationPageSizeSelector]="[10, 20, 50, 100]"
+  [paginationPageSize]="10"
+>
+</ag-grid-angular>
+<TicketDetailComponent *ngIf="selectedTicketId" [id]="selectedTicketId"></TicketDetailComponent>
  
  <!-- <table class="table table-bordered table-striped" *ngIf="showAssignedRequestsTable">
       <thead>
@@ -32,7 +37,7 @@
       </tbody>
 </table> -->
 
-
+<!-- 
 <table class="table table-bordered table-striped" *ngIf="showMyRequestsTable" >
       <thead>
         <tr>
@@ -54,4 +59,4 @@
           <td>{{ ticket.createdAt }}</td>
         </tr>
       </tbody>
-</table>
+</table> -->

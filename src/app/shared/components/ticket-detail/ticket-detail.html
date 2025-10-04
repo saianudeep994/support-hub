@@ -1,1 +1,9 @@
-<p>ticket-detail works!</p>
+<div *ngIf="ticket">
+  <h3>{{ ticket.title }}</h3>
+  <p><strong>Description:</strong> {{ ticket.description }}</p>
+  <p><strong>Status:</strong> {{ ticket.status }}</p>
+  <p><strong>Created At:</strong> {{ ticket.createdAt | date:'short' }}</p>
+  <p><strong>Updated At:</strong> {{ ticket.updatedAt | date:'short' }}</p>
+  <p><strong>Customer ID:</strong> {{ ticket.customerId }}</p>
+  <p><strong>Agent ID:</strong> {{ ticket.agentId }}</p>
+</div>

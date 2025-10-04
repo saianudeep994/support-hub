@@ -33,4 +33,17 @@ export class Supportticketservice {
     // Assuming tickets endpoint and query param for raisedBy
     return this.http.get<any[]>(`${this.apiUrl}?agentId=${user.id}&agentId_ne=null`);
   }
+
+  getTicketById(query: string): Observable<any[]> {
+    if (!query) {
+      return new Observable<any[]>(observer => {
+        observer.next([]);
+        observer.complete();
+      });
+    }
+    
+    // Assuming tickets endpoint and query param for search
+    return this.http.get<any[]>(`${this.apiUrl}?id=${query}`);
+    
+  }
 }

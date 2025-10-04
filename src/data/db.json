@@ -152,7 +152,7 @@
       "priority": 2,
       "status": "Closed",
       "customerId": "u5",
-      "agentId": null,
+      "agentId": "u4",
       "createdAt": "2025-10-10T14:50:00Z",
       "updatedAt": null,
       "isDeleted": false

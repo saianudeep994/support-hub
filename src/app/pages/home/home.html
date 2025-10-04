@@ -21,7 +21,7 @@
 </nav>
 
 <!-- Centered Search Bar or Tickets Table -->
-<div class="d-flex justify-content-center align-items-center" style="height: 60vh;">
+<div class="d-flex justify-content-center align-items-center mb-3" style="height: 68.2vh;">
   <div *ngIf="!showMyRequestsTable && !showAssignedRequestsTable && !showSearchResultsTable && !showNewTicketFormFlag" class="input-group" style="max-width: 400px;">
     <input
       type="text"
@@ -33,11 +33,13 @@
   </div>
 
   <div *ngIf="showMyRequestsTable" class="table-responsive" style="width: 100%;">
-    <app-ticket-list [myTickets]="myTickets" [showMyRequestsTable]="showMyRequestsTable"></app-ticket-list>
+    <h2 class="mb-2 ms-2 mt-2 mb-2">My Requests</h2>
+    <app-ticket-list ms-1 [myTickets]="myTickets" [showMyRequestsTable]="showMyRequestsTable"></app-ticket-list>
   </div>
 
   <div *ngIf="showAssignedRequestsTable" class="table-responsive" style="width: 100%;">
-    <app-ticket-list [assignedTickets]="assignedTickets" [showAssignedRequestsTable]="showAssignedRequestsTable"></app-ticket-list>
+    <h2 class="mb-2 ms-2 mt-2 mb-2">Assigned To Me</h2>
+    <app-ticket-list ms-1 [assignedTickets]="assignedTickets" [showAssignedRequestsTable]="showAssignedRequestsTable"></app-ticket-list>
   </div>
 
   <div *ngIf="showNewTicketFormFlag" style="width: 100%;">

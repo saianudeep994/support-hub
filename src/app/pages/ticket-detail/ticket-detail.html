@@ -1,3 +1,79 @@
-<h2>ticket-detail works!</h2>
-<p>Ticket ID: {{id}}</p>
+<!-- <p>Ticket ID: {{id}}</p>
 
+<div *ngIf="ticket">
+    <h3>{{ ticket[0].title }}</h3>
+    <p><strong>Description:</strong> {{ ticket[0].description }}</p>
+    <p><strong>Status:</strong> {{ ticket[0].status }}</p>
+    <p><strong>Created At:</strong> {{ ticket[0].createdAt | date:'short' }}</p>
+    <p><strong>Updated At:</strong> {{ ticket[0].updatedAt | date:'short' }}</p>
+    <p><strong>Customer ID:</strong> {{ ticket[0].customerId }}</p>
+    <p><strong>Agent ID:</strong> {{ ticket[0].agentId }}</p>
+</div> -->
+<div *ngIf="ticket && ticket[0]" class="container mt-4" style="max-width: 600px;">
+  <!-- Status Stepper Progress Bar -->
+  <div class="mb-4">
+    <div class="stepper-container">
+      <label class="form-label fw-bold">Status Progress</label>
+      <div class="stepper-track"></div>
+      <div class="stepper-progress" [style.width]="getStatusStepperWidth(ticket[0].status)"></div>
+      <div class="stepper-nodes">
+        <div class="step-node" [ngClass]="{'active': ticket[0].status === 'Open' || ticket[0].status === 'In Progress' || ticket[0].status === 'Closed'}">
+          <div class="circle"></div>
+          <span>New</span>
+        </div>
+        <div class="step-node" [ngClass]="{'active': ticket[0].status === 'In Progress' || ticket[0].status === 'Closed'}">
+          <div class="circle"></div>
+          <span>In Progress</span>
+        </div>
+        <div class="step-node" [ngClass]="{'active': ticket[0].status === 'Closed'}">
+          <div class="circle"></div>
+          <span>Closed</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <!-- Ticket Details Card -->
+  <div class="card shadow">
+    <div class="card-header">
+      <h4>Ticket Details</h4>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Ticket ID</label>
+          <input type="text" class="form-control" [value]="ticket[0].id" readonly>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Title</label>
+          <input type="text" class="form-control" [value]="ticket[0].title" readonly>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <textarea class="form-control" rows="3" readonly>{{ ticket[0].description }}</textarea>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Status</label>
+          <input type="text" class="form-control" [value]="ticket[0].status" readonly>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Created At</label>
+          <input type="text" class="form-control" [value]="ticket[0].createdAt | date:'short'" readonly>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Updated At</label>
+          <input type="text" class="form-control" [value]="ticket[0].updatedAt | date:'short'" readonly>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Customer ID</label>
+          <input type="text" class="form-control" [value]="ticket[0].customerId" readonly>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Agent ID</label>
+          <input type="text" class="form-control" [value]="ticket[0].agentId" readonly>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
