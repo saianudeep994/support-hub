@@ -9,7 +9,7 @@
     <p><strong>Customer ID:</strong> {{ ticket[0].customerId }}</p>
     <p><strong>Agent ID:</strong> {{ ticket[0].agentId }}</p>
 </div> -->
-<div *ngIf="ticket && ticket[0]" class="container mt-4" style="max-width: 600px;">
+<div *ngIf="ticket && ticket[0]" class="container mt-4" style="max-width: 1200px;">
   <!-- Status Stepper Progress Bar -->
   <div class="mb-4">
     <div class="stepper-container">
@@ -35,43 +35,69 @@
   <br>
 
   <!-- Ticket Details Card -->
-  <div class="card shadow">
-    <div class="card-header">
-      <h4>Ticket Details</h4>
+  <div class="card shadow-lg border-0">
+    <div class="card-header bg-primary text-white d-flex align-items-center justify-content-between">
+      <h4 class="mb-0"><i class="bi bi-ticket-detailed me-2"></i>Ticket #{{ ticket[0].id }}</h4>
+      <span class="badge bg-info text-dark fs-6">{{ ticket[0].status }}</span>
     </div>
     <div class="card-body">
-      <form>
-        <div class="mb-3">
-          <label class="form-label">Ticket ID</label>
-          <input type="text" class="form-control" [value]="ticket[0].id" readonly>
+      <div class="row g-4">
+        <div class="col-md-8">
+          <h5 class="fw-bold mb-2"><i class="bi bi-chat-left-text me-2"></i>{{ ticket[0].title }}</h5>
+          <p class="text-muted mb-3">{{ ticket[0].description }}</p>
         </div>
-        <div class="mb-3">
-          <label class="form-label">Title</label>
-          <input type="text" class="form-control" [value]="ticket[0].title" readonly>
+        <div class="col-md-4">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <i class="bi bi-calendar-plus me-2"></i>
+              <strong>Created:</strong>
+              <span class="text-secondary">{{ ticket[0].createdAt | date:'short' }}</span>
+            </li>
+            <li class="list-group-item">
+              <i class="bi bi-calendar-check me-2"></i>
+              <strong>Updated:</strong>
+              <span class="text-secondary">{{ ticket[0].updatedAt | date:'short' }}</span>
+            </li>
+            <li class="list-group-item">
+              <i class="bi bi-person me-2"></i>
+              <strong>Customer:</strong>
+              <span class="text-secondary">{{ ticket[0].customerId }}</span>
+            </li>
+            <li class="list-group-item">
+              <i class="bi bi-person-badge me-2"></i>
+              <strong>Agent:</strong>
+              <span class="text-secondary">{{ ticket[0].agentId }}</span>
+            </li>
+          </ul>
         </div>
-        <div class="mb-3">
-          <label class="form-label">Description</label>
-          <textarea class="form-control" rows="3" readonly>{{ ticket[0].description }}</textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comments Section -->
+  <div class="card mt-4 shadow-sm border-0">
+    <div class="card-header bg-light d-flex align-items-center">
+      <i class="bi bi-chat-dots me-2"></i>
+      <span class="fw-bold">Comments</span>
+    </div>
+    <div class="card-body">
+        <div>
+        <div *ngFor="let comment of comments" class="mb-3 pb-2 border-bottom">
+          <div class="d-flex align-items-center mb-1">
+            <i class="bi bi-person-circle me-2 text-primary"></i>
+            <span class="fw-semibold">{{ getUserName(comment.authorId) }}</span>
+            <span class="ms-2 text-muted small">{{ comment.createdAt | date:'short' }}</span>
+          </div>
+          <div class="ps-4">{{ comment.content }}</div>
         </div>
-        <div class="mb-3">
-          <label class="form-label">Status</label>
-          <input type="text" class="form-control" [value]="ticket[0].status" readonly>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Created At</label>
-          <input type="text" class="form-control" [value]="ticket[0].createdAt | date:'short'" readonly>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Updated At</label>
-          <input type="text" class="form-control" [value]="ticket[0].updatedAt | date:'short'" readonly>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Customer ID</label>
-          <input type="text" class="form-control" [value]="ticket[0].customerId" readonly>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Agent ID</label>
-          <input type="text" class="form-control" [value]="ticket[0].agentId" readonly>
+      </div>
+      <ng-template #noComments>
+        <div class="text-muted">No comments yet.</div>
+      </ng-template>
+      <form (ngSubmit)="addComment()" class="mt-3">
+        <div class="input-group">
+          <textarea [(ngModel)]="newComment" name="newComment" rows="2" class="form-control" placeholder="Add a comment..." required></textarea>
+          <button class="btn btn-primary" type="submit">Post</button>
         </div>
       </form>
     </div>
