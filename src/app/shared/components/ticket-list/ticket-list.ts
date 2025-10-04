@@ -36,7 +36,7 @@ export class TicketList implements OnInit {
       headerName: 'Actions',
       field: 'actions',
       width: 165,
-      cellRenderer: `<button class="btn btn-primary btn-sm" (click)="onView()">View</button>`,
+      cellRenderer: () => '<button class="btn btn-primary btn-sm">View</button>',
     }
   ];
   gridContext = {

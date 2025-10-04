@@ -24,7 +24,7 @@
           <a class="nav-link" routerLink="/customer" routerLinkActive="active">My Tickets</a>
         </li> -->
                     <li class="nav-item" *ngIf="hasRole(['Customer', 'Support', 'Agent', 'Admin'])">
-                        <a class="nav-link" routerLink="/ticket" [queryParams]="{id:1}" routerLinkActive="active">Ticket
+                        <a class="nav-link" routerLink="/ticket" [queryParams]="{id:'t2'}" routerLinkActive="active">Ticket
                             Details</a>
                     </li>
                     <li class="nav-item" *ngIf="hasRole(['Customer', 'Support', 'Agent', 'Admin'])">
