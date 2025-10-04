@@ -1,0 +1,17 @@
+.nav-item.active > .nav-link,
+.nav-link.active,
+.nav-link:hover {
+  background-color: #315ea1;
+  color: #fff !important;
+  border-radius: 4px;
+}
+.navbar {
+  background: #00395d  !important;
+}
+.container {
+  height: auto;
+  max-width: 1500px;
+  max-height: 1000px;
+  overflow-x: auto;   // horizontal scroll
+  max-height: 600px;  // optional: vertical scroll with sticky headers
+}

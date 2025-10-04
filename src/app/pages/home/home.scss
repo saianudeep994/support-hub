@@ -1,0 +1,25 @@
+.d-flex {
+  width: 100%;
+  overflow-x: auto;   // horizontal scroll
+  max-height: 600px;  // optional: vertical scroll with sticky headers
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+.d-flex div.table-responsive {
+
+    height: 100%;
+}
+
+
+.table.table-bordered {
+  width: 100%;
+  min-width: 900px;   // ensures horizontal scrolling if needed
+  border-collapse: collapse;
+  align-self: start;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: left;
+    white-space: nowrap; // keep text on one line
+}

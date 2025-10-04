@@ -1,1 +1,57 @@
-<p>ticket-list works!</p>
+<ag-grid-angular
+  style="width: 100%; height: 400px;"
+
+  [rowData]="rowData"
+  [columnDefs]="columnDefs"
+  [defaultColDef]="defaultColDef"
+  [animateRows]="true"
+  [pagination]="true"
+  *ngIf="showAssignedRequestsTable" >
+</ag-grid-angular> 
+ 
+ <!-- <table class="table table-bordered table-striped" *ngIf="showAssignedRequestsTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th>Assigned To</th>
+          <th>Status</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ticket of assignedTickets">
+          <td>{{ ticket.id }}</td>
+          <td>{{ ticket.title }}</td>
+          <td>{{ ticket.customerId }}</td>
+          <td>{{ ticket.agentId }}</td>
+          <td>{{ ticket.status }}</td>
+          <td>{{ ticket.createdAt }}</td>
+        </tr>
+      </tbody>
+</table> -->
+
+
+<table class="table table-bordered table-striped" *ngIf="showMyRequestsTable" >
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th>Assigned To</th>
+          <th>Status</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ticket of myTickets">
+          <td>{{ ticket.id }}</td>
+          <td>{{ ticket.title }}</td>
+          <td>{{ ticket.customerId }}</td>
+          <td>{{ ticket.agentId }}</td>
+          <td>{{ ticket.status }}</td>
+          <td>{{ ticket.createdAt }}</td>
+        </tr>
+      </tbody>
+</table>

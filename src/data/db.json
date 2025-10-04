@@ -156,8 +156,67 @@
       "createdAt": "2025-10-10T14:50:00Z",
       "updatedAt": null,
       "isDeleted": false
+    },
+    {
+      "id": "4776",
+      "title": "qwerty",
+      "description": "qwerty",
+      "priority": "2",
+      "status": "Open",
+      "customerId": "u5",
+      "agentId": null,
+      "createdAt": "2025-10-04T03:03:03.368Z",
+      "updatedAt": "2025-10-04T03:03:03.368Z",
+      "isDeleted": false
+    },
+    {
+      "id": "5421",
+      "title": "qwerty",
+      "description": "qwerty",
+      "priority": "2",
+      "status": "Open",
+      "customerId": "u5",
+      "agentId": null,
+      "createdAt": "2025-10-04T03:03:03.371Z",
+      "updatedAt": "2025-10-04T03:03:03.371Z",
+      "isDeleted": false
+    },
+    {
+      "id": "76dd",
+      "title": "querty 1",
+      "description": "qwerty 1",
+      "priority": "2",
+      "status": "Open",
+      "customerId": "u5",
+      "agentId": null,
+      "createdAt": "2025-10-04T03:04:10.700Z",
+      "updatedAt": "2025-10-04T03:04:11.341Z",
+      "isDeleted": false
+    },
+    {
+      "id": "d839",
+      "title": "sample req",
+      "description": "sample",
+      "priority": "2",
+      "status": "Open",
+      "customerId": "u5",
+      "agentId": null,
+      "createdAt": "2025-10-04T10:20:17.923Z",
+      "updatedAt": "2025-10-04T10:20:17.924Z",
+      "isDeleted": false
+    },
+    {
+      "id": "1571",
+      "title": "sample req",
+      "description": "sample",
+      "priority": "2",
+      "status": "Open",
+      "customerId": "u5",
+      "agentId": null,
+      "createdAt": "2025-10-04T10:20:17.927Z",
+      "updatedAt": "2025-10-04T10:20:17.927Z",
+      "isDeleted": false
     }
-
   ],
   "ticketComments": [
     {
