@@ -27,6 +27,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              "src/assets/icons",
+              {
+                "glob": "**/*",
+                "input": "src/assets/icons"
               }
             ],
             "styles": [
@@ -94,5 +99,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

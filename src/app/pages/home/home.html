@@ -1,0 +1,72 @@
+
+<!-- Sub Navbar -->
+<nav class="mb-4 border-bottom pb-2">
+<div class="navbar navbar-expand-lg navbar-dark bg-light" role="group" aria-label="Request Navigation">
+    <button class="btn btn-primary ms-2" (click)="fetchMyRequests()">My Requests</button>
+    <button class="btn btn-outline-primary ms-2" (click)="fetchAssignedRequests()">Assigned To Me</button>
+    <button class="btn btn-success ms-auto me-2" (click)="showNewTicketForm()">Create New Ticket</button>
+</div>
+</nav>
+
+<!-- Centered Search Bar or Tickets Table -->
+<div class="d-flex justify-content-center align-items-center" style="height: 60vh;">
+  <div *ngIf="!showMyRequestsTable && !showAssignedRequestsTable" class="input-group" style="max-width: 400px;">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search requests..."
+      [(ngModel)]="searchQuery"
+    />
+    <button class="btn btn-success" (click)="searchRequests()">Search</button>
+  </div>
+
+  <div *ngIf="showMyRequestsTable" style="width: 100%;">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th>Assigned To</th>
+          <th>Status</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ticket of myTickets">
+          <td>{{ ticket.id }}</td>
+          <td>{{ ticket.title }}</td>
+          <td>{{ ticket.customerId }}</td>
+          <td>{{ ticket.agentId }}</td>
+          <td>{{ ticket.status }}</td>
+          <td>{{ ticket.createdAt }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="showAssignedRequestsTable" style="width: 100%;">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th>Assigned To</th>
+          <th>Status</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ticket of assignedTickets">
+          <td>{{ ticket.id }}</td>
+          <td>{{ ticket.title }}</td>
+          <td>{{ ticket.customerId }}</td>
+          <td>{{ ticket.agentId }}</td>
+          <td>{{ ticket.status }}</td>
+          <td>{{ ticket.createdAt }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
