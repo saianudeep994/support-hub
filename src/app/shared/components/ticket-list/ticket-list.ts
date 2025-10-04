@@ -5,7 +5,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
 import { AgGridAngular } from 'ag-grid-angular';
 import { TicketDetailComponent } from '../../../pages/ticket-detail/ticket-detail';
-//import { ViewButtonRenderer } from './view-button-renderer';
+import { ViewButtonRenderer } from '../view-button-renderer/view-button-renderer';
 import { buffer } from 'rxjs';
 
 @Component({
@@ -36,16 +36,16 @@ export class TicketList implements OnInit {
       headerName: 'Actions',
       field: 'actions',
       width: 165,
-      cellRenderer: () => '<button class="btn btn-primary btn-sm">View</button>',
+      cellRenderer: ViewButtonRenderer,
     }
   ];
-  gridContext = {
-    onViewTicket: (id: string) => this.showTicketDetail(id)
-  };
+  // gridContext = {
+  //   onViewTicket: (id: string) => this.showTicketDetail(id)
+  // };
   
-  showTicketDetail(id: string) {
-    this.selectedTicketId = id;
-  }
+  // showTicketDetail(id: string) {
+  //   this.selectedTicketId = id;
+  // }
   
   defaultColDef = { resizable: true };
 
