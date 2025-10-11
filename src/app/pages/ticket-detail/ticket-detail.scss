@@ -1,62 +1,96 @@
+/* tweakable variables */
 .stepper-container {
+  --circle-size: 28px;       /* diameter of the node circle */
+  --node-width: 60px;        /* width of node container (controls label wrap and offset) */
+  --track-height: 8px;
   position: relative;
   width: 100%;
-  height: 60px;
+  height: 80px;
   margin-bottom: 16px;
 }
 
+/* track spans full container (0 → 100%) */
 .stepper-track {
   position: absolute;
-  top: 41px;
+  top: calc(60% - var(--track-height) / 2);
   left: 0;
   right: 0;
-  height: 8px;
+  height: var(--track-height);
   background: #e9ecef;
   border-radius: 4px;
   z-index: 1;
 }
 
+/* progress fill sits on top of track and grows by width% */
 .stepper-progress {
   position: absolute;
-  top: 41px;
+  top: calc(60% - var(--track-height) / 2);
   left: 0;
-  height: 8px;
+  height: var(--track-height);
   background: #315ea1;
   border-radius: 4px;
   z-index: 2;
-  transition: width 0.3s;
+  transition: width 0.35s ease;
 }
 
+/* nodes container covers whole width, distribute nodes evenly */
 .stepper-nodes {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(66.8% - var(--circle-size) / 2 - 6px); /* place circle vertically centered on track */
   display: flex;
   justify-content: space-between;
-  position: relative;
+  align-items: flex-start; /* labels will be under circles */
   z-index: 3;
+  pointer-events: none; /* allow clicks pass-through except on .step-node */
 }
 
+/* each node is a fixed-width block so translateX(-50%) corresponds to half circle offset */
 .step-node {
+  width: var(--node-width);
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80px;
+  pointer-events: auto; /* restore clickability for node children */
+  transform: translateX(0);
+  transition: transform 0.2s;
 }
 
+/* shift the first node left by half the node width so its center aligns with track left edge */
+.step-node:first-child {
+  transform: translateX(calc(-1 * var(--node-width) / 2));
+}
+
+/* shift the last node right by half the node width so its center aligns with track right edge */
+.step-node:last-child {
+  transform: translateX(calc(var(--node-width) / 2));
+}
+
+/* circle visuals */
 .circle {
-  width: 28px;
-  height: 28px;
+  width: var(--circle-size);
+  height: var(--circle-size);
   border-radius: 50%;
   background: #e9ecef;
   border: 2px solid #b0b0b0;
-  margin-bottom: 4px;
-  transition: background 0.3s, border-color 0.3s;
+  box-sizing: border-box;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
 }
 
+/* active state */
 .step-node.active .circle {
   background: #315ea1;
   border-color: #315ea1;
+  transform: scale(1.05);
 }
 
+/* label under each circle, centered */
 .step-node span {
+  margin-top: 8px;
   font-size: 1rem;
-  margin-top: 2px;
+  text-align: center;
+  white-space: normal; /* allow wrap under the small node width */
+  max-width: 140px;
+  color: #222;
 }

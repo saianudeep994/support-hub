@@ -21,7 +21,8 @@ export class MainLayoutComponent {
   }
 
   get user() {
-    return this.auth.getCurrentUser();
+    var user = this.auth.getCurrentUser();
+    return user
   }
 
   hasRole(allowedRoles: string[]): boolean {

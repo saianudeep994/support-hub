@@ -68,7 +68,7 @@ export class HomeDashboardComponent {
   }
   fetchAssignedRequests() {
     // alert('Fetching assigned requests...');
-    this.supportTicketService.getTicketsAssignedToCurrentAgent().subscribe(tickets => {
+    this.myticketService.getTicketsAssignedToCurrentAgent().subscribe(tickets => {
       //console.log('Assigned Tickets:', tickets);
       this.assignedTickets = tickets;
       this.showAssignedRequestsTable = true;

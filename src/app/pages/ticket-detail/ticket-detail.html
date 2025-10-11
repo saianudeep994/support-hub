@@ -73,6 +73,61 @@
       </div>
     </div>
   </div>
+  <!-- Ticket Details Card -->
+<!-- <div class="card shadow-lg border-0">
+  <div class="card-header bg-primary text-white d-flex align-items-center justify-content-between">
+    <h4 class="mb-0"><i class="bi bi-ticket-detailed me-2"></i>Ticket #{{ ticket[0].id }}</h4> -->
+    <!-- Status dropdown -->
+    <!-- <form class="d-flex align-items-center gap-2" (ngSubmit)="onSaveStatus()"
+          [formGroup]="statusForm">
+      <select class="form-select form-select-sm" style="min-width: 160px"
+              formControlName="status">
+        <option [ngValue]="'Open'">Open</option>
+        <option [ngValue]="'In Progress'">In Progress</option>
+        <option [ngValue]="'Resolved'">Resolved</option>
+        <option [ngValue]="'Closed'">Closed</option>
+      </select>
+      <button class="btn btn-light btn-sm" type="submit">Update</button>
+    </form>
+  </div> -->
+
+  <!-- existing body stays the same -->
+  <!-- <div class="card-body">
+      <div class="row g-4">
+        <div class="col-md-8">
+          <h5 class="fw-bold mb-2"><i class="bi bi-chat-left-text me-2"></i>{{ ticket[0].title }}</h5>
+          <p class="text-muted mb-3">{{ ticket[0].description }}</p>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <i class="bi bi-calendar-plus me-2"></i>
+              <strong>Created:</strong>
+              <span class="text-secondary">{{ ticket[0].createdAt | date:'short' }}</span>
+            </li>
+            <li class="list-group-item">
+              <i class="bi bi-calendar-check me-2"></i>
+              <strong>Updated:</strong>
+              <span class="text-secondary">{{ ticket[0].updatedAt | date:'short' }}</span>
+            </li>
+            <li class="list-group-item">
+              <i class="bi bi-person me-2"></i>
+              <strong>Customer:</strong>
+              <span class="text-secondary">{{ ticket[0].customerId }}</span>
+            </li>
+            <li class="list-group-item">
+              <i class="bi bi-person-badge me-2"></i>
+              <strong>Agent:</strong>
+              <span class="text-secondary">{{ ticket[0].agentId }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  
+</div> -->
+
 
   <!-- Comments Section -->
   <div class="card mt-4 shadow-sm border-0">

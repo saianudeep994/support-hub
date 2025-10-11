@@ -1,0 +1,37 @@
+
+.form {
+     max-width: 500px; 
+     margin: auto; 
+     border: 1px solid #ccc; 
+     border-radius: 8px; 
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     height: auto;
+}
+/* keep size identical before/after tap/click */
+.signup-btn {
+  --bs-btn-padding-y: 0.9rem;
+  --bs-btn-padding-x: 1.5rem;
+  --bs-btn-font-size: 1.15rem;
+  min-height: 56px;         /* lock height */
+  border-width: 2px;        /* consistent border */
+}
+.signup-btn:focus,
+.signup-btn:active,
+.signup-btn:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 .25rem rgba(13,110,253,.25); /* accessible focus without shifting */
+  border-width: 2px;        /* avoid thicker border on active */
+}
+.button-large {
+  font-size: 1.15rem;       /* text size */
+  padding: 0.9rem 1.6rem;   /* hit area */
+  min-height: 56px;
+  width: 100%;
+  border: 2px solid #0d6efd;
+  border-radius: .5rem;
+}
+.button-large:active,
+.button-large:focus {
+  border: 2px solid #0d6efd;
+  box-shadow: 0 0 0 .25rem rgba(13,110,253,.25);
+}

@@ -5,7 +5,7 @@
                 class="ms-3" />
         </a>
         <h1 class="mb-1 ms-3">Support Hub</h1>
-        <span class="me-3 ms-auto">{{ user?.fullName }}</span>
+        <span class="me-3 ms-auto">{{ user?.name }}</span>
         <button class="btn btn-outline-dark me-3" *ngIf="isLoggedIn()" (click)="logout()">Logout</button>
         <button class="btn btn-outline-dark me-3" *ngIf="!isLoggedIn()" (click)="login()">Login</button>
     </div>
@@ -24,7 +24,7 @@
           <a class="nav-link" routerLink="/customer" routerLinkActive="active">My Tickets</a>
         </li> -->
                     <li class="nav-item" *ngIf="hasRole(['Customer', 'Support', 'Agent', 'Admin'])">
-                        <a class="nav-link" routerLink="/ticket" [queryParams]="{id:'t2'}" routerLinkActive="active">Ticket
+                        <a class="nav-link" routerLink="/ticket" [queryParams]="{id:'INC1'}" routerLinkActive="active">Ticket
                             Details</a>
                     </li>
                     <li class="nav-item" *ngIf="hasRole(['Customer', 'Support', 'Agent', 'Admin'])">

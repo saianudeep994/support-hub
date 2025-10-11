@@ -9,6 +9,9 @@
       <label class="form-label">Password</label>
       <input [(ngModel)]="password" name="password" class="form-control" type="password" />
     </div>
-    <button class="btn btn-primary w-100" type="submit">Login</button>
+    <button class="btn btn-primary w-40" type="submit">Login</button>
+    <p class="d-inline ms-3">or</p>
+    <button class="btn btn-primary w-40 ms-3" (click)="signup()">signup</button>
+    
   </form>
 </div>

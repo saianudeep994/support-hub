@@ -2,11 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Myticketservice } from '../../shared/services/myticket/myticketservice';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Authservice } from '../../shared/services/auth/authservice';
 
 @Component({
   selector: 'TicketDetailComponent',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './ticket-detail.html',
   styleUrls: ['./ticket-detail.scss']
 })
@@ -16,10 +17,13 @@ export class TicketDetailComponent implements OnInit {
   comments: any[] = [];
   users: any[] = [];
   newComment: string = '';
+  userName: string = '';
+  statusForm!: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
-    private ticketService: Myticketservice
+    private ticketService: Myticketservice,
+    private authservice: Authservice
   ) {}
 
   ngOnInit() {
@@ -41,16 +45,26 @@ export class TicketDetailComponent implements OnInit {
   loadComments() {
     // Replace with your service call
     // Example: this.comments = allComments.filter(c => c.ticketId === this.ticket[0].id);
+    this.ticketService.getTicketComments(this.id || '').subscribe(comments => {
+      this.comments = comments;
+    });
   }
 
   loadUsers() {
     // Replace with your service call
     // Example: this.users = allUsers;
+
   }
 
   getUserName(authorId: string): string {
     const user = this.users.find(u => u.id === authorId);
     return user ? user.fullName : 'Unknown';
+    // const user = this.ticketService.getCurrentUser();
+    // return user ? user.name : 'Unknown User';
+  }
+  getcurrentUserName(): string {
+    this.authservice.getUserNamebyId(this.ticket[0].authorId).subscribe(name => this.userName = name);
+    return this.userName;
   }
 
   addComment() {
@@ -58,13 +72,22 @@ export class TicketDetailComponent implements OnInit {
     const comment = {
       id: Math.random().toString(36).substr(2, 9),
       ticketId: this.ticket[0].id,
-      authorId: 'currentUserId', // Replace with actual current user ID
+      authorId: this.getcurrentUserName(), // Replace with actual current user ID
       content: this.newComment,
       createdAt: new Date().toISOString()
     };
     // Save comment (call your service)
     this.comments.push(comment);
+    this.ticketService.addComment(comment).subscribe();
     this.newComment = '';
+  }
+  onSaveStatus(): void {
+    if (this.ticket.length === 0) return;
+    const updatedTicket = { ...this.ticket[0] };
+    this.ticketService.updateTicket(updatedTicket).subscribe(() => {
+      alert('Ticket status updated successfully.');
+    }
+    );
   }
 
   getStatusWidth(status: string): string {

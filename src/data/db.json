@@ -1,293 +1,330 @@
 {
   "users": [
     {
-      "id": "u1",
-      "email": "john@example.com",
-      "fullName": "John Doe",
-      "role": "Customer",
-      "createdAt": "2025-10-01T10:00:00Z"
+      "userId": 1,
+      "name": "admin",
+      "email": "admin@supporthub.com",
+      "roles": [
+        {
+          "roleId": 1,
+          "roleName": "Admin",
+          "roleDescription": "Admin user"
+        },
+        {
+          "roleId": 2,
+          "roleName": "Agent",
+          "roleDescription": "Support agent"
+        }
+      ],
+      "token": "",
+      "id": "2acf"
     },
     {
-      "id": "u2",
-      "email": "agent@example.com",
-      "fullName": "Agent Smith",
-      "role": "Agent",
-      "createdAt": "2025-10-01T11:00:00Z"
+      "userId": 2,
+      "name": "agent",
+      "email": "agent@supporthub.com",
+      "roles": [
+        {
+          "roleId": 2,
+          "roleName": "Agent",
+          "roleDescription": "Support agent"
+        }
+      ],
+      "token": "",
+      "id": "9734"
     },
     {
-      "id": "u3",
-      "email": "admin@example.com",
-      "fullName": "Admin Arun",
-      "role": "Admin",
-      "createdAt": "2025-10-01T12:00:00Z"
-    },
-    {
-      "id": "u4",
-      "email": "support@example.com",
-      "fullName": "Support Sara",
-      "role": "Support",
-      "createdAt": "2025-10-01T13:00:00Z"
-    },
-    {
-      "id": "u5",
-      "email": "customer@example.com",
-      "fullName": "Customer Cathy",
-      "role": "Customer",
-      "createdAt": "2025-10-01T14:00:00Z"
+      "userId": 3,
+      "name": "customer",
+      "email": "customer@supporthub.com",
+      "roles": [
+        {
+          "roleId": 3,
+          "roleName": "Customer",
+          "roleDescription": "End customer"
+        }
+      ],
+      "token": "",
+      "id": "08f9"
     }
   ],
   "tickets": [
     {
-      "id": "t1",
+      "id": "INC1",
       "title": "Login issue",
       "description": "Cannot login to portal",
       "priority": 1,
       "status": "Open",
-      "customerId": "u1",
-      "agentId": "u5",
+      "customerId": 1,
+      "agentId": 2,
       "createdAt": "2025-10-01T12:00:00Z",
       "updatedAt": null,
       "isDeleted": false
     },
     {
-      "id": "t2",
+      "id": "INC2",
+      "title": "Login issue",
+      "description": "Cannot login to portal",
+      "priority": 2,
+      "status": "In Progress",
+      "customerId": 1,
+      "agentId": 2,
+      "createdAt": "2025-10-01T12:00:00Z",
+      "updatedAt": null,
+      "isDeleted": false
+    },
+    {
+      "id": "INC3",
+      "title": "Login issue",
+      "description": "Cannot login to portal",
+      "priority": 1,
+      "status": "In Progress",
+      "customerId": 1,
+      "agentId": 2,
+      "createdAt": "2025-10-01T12:00:00Z",
+      "updatedAt": null,
+      "isDeleted": false
+    },
+    {
+      "id": "INC4",
+      "title": "Login issue",
+      "description": "Cannot login to portal",
+      "priority": 1,
+      "status": "Open",
+      "customerId": 2,
+      "agentId": 3,
+      "createdAt": "2025-10-01T12:00:00Z",
+      "updatedAt": null,
+      "isDeleted": false
+    },
+    {
+      "id": "INC5",
       "title": "Payment failure",
       "description": "Payment not going through",
       "priority": 2,
       "status": "In Progress",
-      "customerId": "u1",
-      "agentId": null,
+      "customerId": 2,
+      "agentId": 3,
       "createdAt": "2025-10-02T09:30:00Z",
       "updatedAt": null,
       "isDeleted": false
     },
     {
-      "id": "t3",
+      "id": "INC6",
       "title": "Account suspension",
       "description": "Account suspended without reason",
-      "priority": 3,
+      "priority": 1,
       "status": "Closed",
-      "customerId": "u1",
-      "agentId": "u5",
+      "customerId": 2,
+      "agentId": 3,
       "createdAt": "2025-10-03T14:15:00Z",
       "updatedAt": null,
       "isDeleted": false
     },
     {
-      "id": "t4",
+      "id": "INC7",
       "title": "Feature request",
       "description": "Requesting new feature for dashboard",
       "priority": 4,
       "status": "Open",
-      "customerId": "u2",
-      "agentId": null,
+      "customerId": 3,
+      "agentId": 4,
       "createdAt": "2025-10-04T08:45:00Z",
       "updatedAt": null,
       "isDeleted": false
     },
     {
-      "id": "t5",
+      "id": "INC8",
       "title": "Bug in report generation",
       "description": "Reports not generating correctly",
       "priority": 2,
       "status": "In Progress",
-      "customerId": "u2",
-      "agentId": "u5",
+      "customerId": 3,
+      "agentId": 4,
       "createdAt": "2025-10-05T11:20:00Z",
       "updatedAt": null,
       "isDeleted": false
     },
     {
-      "id": "t6",
+      "id": "INC9",
       "title": "Unable to reset password",
       "description": "Password reset link not working",
       "priority": 1,
       "status": "Open",
-      "customerId": "u2",
-      "agentId": null,
+      "customerId": 3,
+      "agentId": 4,
       "createdAt": "2025-10-06T13:55:00Z",
       "updatedAt": null,
       "isDeleted": false
     },
     {
-      "id": "t7",
+      "id": "INC10",
       "title": "Data sync issue",
       "description": "Data not syncing across devices",
       "priority": 3,
       "status": "Closed",
-      "customerId": "u3",
-      "agentId": "u5",
+      "customerId": 4,
+      "agentId": 1,
       "createdAt": "2025-10-07T15:40:00Z",
       "updatedAt": null,
-      "isDeleted": false
-    },
-    {
-      "id": "t8",
-      "title": "Notification settings",
-      "description": "Unable to update notification preferences",
-      "priority": 4,
-      "status": "Open",
-      "customerId": "u3",
-      "agentId": null,
-      "createdAt": "2025-10-08T10:10:00Z",
-      "updatedAt": null,
-      "isDeleted": false
-    },
-    {
-      "id": "t9",
-      "title": "Mobile app crash",
-      "description": "App crashes on launch",
-      "priority": 1,
-      "status": "In Progress",
-      "customerId": "u3",
-      "agentId": "u4",
-      "createdAt": "2025-10-09T12:25:00Z",
-      "updatedAt": null,
-      "isDeleted": false
-    },
-    {
-      "id": "t10",
-      "title": "Subscription cancellation",
-      "description": "Need help with cancelling subscription",
-      "priority": 2,
-      "status": "Closed",
-      "customerId": "u5",
-      "agentId": "u4",
-      "createdAt": "2025-10-10T14:50:00Z",
-      "updatedAt": null,
-      "isDeleted": false
-    },
-    {
-      "id": "4776",
-      "title": "qwerty",
-      "description": "qwerty",
-      "priority": "2",
-      "status": "Open",
-      "customerId": "u5",
-      "agentId": null,
-      "createdAt": "2025-10-04T03:03:03.368Z",
-      "updatedAt": "2025-10-04T03:03:03.368Z",
-      "isDeleted": false
-    },
-    {
-      "id": "5421",
-      "title": "qwerty",
-      "description": "qwerty",
-      "priority": "2",
-      "status": "Open",
-      "customerId": "u5",
-      "agentId": null,
-      "createdAt": "2025-10-04T03:03:03.371Z",
-      "updatedAt": "2025-10-04T03:03:03.371Z",
-      "isDeleted": false
-    },
-    {
-      "id": "76dd",
-      "title": "querty 1",
-      "description": "qwerty 1",
-      "priority": "2",
-      "status": "Open",
-      "customerId": "u5",
-      "agentId": null,
-      "createdAt": "2025-10-04T03:04:10.700Z",
-      "updatedAt": "2025-10-04T03:04:11.341Z",
-      "isDeleted": false
-    },
-    {
-      "id": "d839",
-      "title": "sample req",
-      "description": "sample",
-      "priority": "2",
-      "status": "Open",
-      "customerId": "u5",
-      "agentId": null,
-      "createdAt": "2025-10-04T10:20:17.923Z",
-      "updatedAt": "2025-10-04T10:20:17.924Z",
-      "isDeleted": false
-    },
-    {
-      "id": "1571",
-      "title": "sample req",
-      "description": "sample",
-      "priority": "2",
-      "status": "Open",
-      "customerId": "u5",
-      "agentId": null,
-      "createdAt": "2025-10-04T10:20:17.927Z",
-      "updatedAt": "2025-10-04T10:20:17.927Z",
       "isDeleted": false
     }
   ],
   "ticketComments": [
     {
       "id": "c1",
-      "ticketId": "t1",
-      "authorId": "u1",
+      "ticketId": "INC1",
+      "authorId": 1,
       "content": "Still facing the issue.",
       "createdAt": "2025-10-01T13:00:00Z"
     },
     {
       "id": "c2",
-      "ticketId": "t1",
-      "authorId": "u2",
+      "ticketId": "INC1",
+      "authorId": 1,
       "content": "Looking into it.",
       "createdAt": "2025-10-01T14:00:00Z"
     },
     {
       "id": "c3",
-      "ticketId": "t2",
+      "ticketId": "INC1",
       "authorId": "u1",
       "content": "Any updates on this?",
       "createdAt": "2025-10-02T10:00:00Z"
     },
     {
       "id": "c4",
-      "ticketId": "t3",
+      "ticketId": "INC2",
       "authorId": "u2",
       "content": "Issue resolved. Please check.",
       "createdAt": "2025-10-03T15:00:00Z"
     },
     {
       "id": "c5",
-      "ticketId": "t4",
+      "ticketId": "INC2",
       "authorId": "u1",
       "content": "Feature would be really helpful.",
       "createdAt": "2025-10-04T09:00:00Z"
     },
     {
       "id": "c6",
-      "ticketId": "t5",
+      "ticketId": "INC2",
       "authorId": "u2",
       "content": "Working on a fix.",
       "createdAt": "2025-10-05T12:00:00Z"
     },
     {
       "id": "c7",
-      "ticketId": "t6",
+      "ticketId": "INC3",
       "authorId": "u1",
       "content": "Any progress?",
       "createdAt": "2025-10-06T14:00:00Z"
     },
     {
       "id": "c8",
-      "ticketId": "t7",
+      "ticketId": "INC3",
       "authorId": "u2",
       "content": "Please try updating the app.",
       "createdAt": "2025-10-07T16:00:00Z"
     },
     {
       "id": "c9",
-      "ticketId": "t8",
+      "ticketId": "INC3",
       "authorId": null,
       "content": null,
       "createdAt": null
     },
     {
       "id": "c10",
-      "ticketId": null,
+      "ticketId": "INC4",
       "authorId": null,
       "content": null,
       "createdAt": null
+    },
+    {
+      "id": "m0ktfd8zw",
+      "ticketId": "INC4",
+      "authorId": "currentUserId",
+      "content": "Hello",
+      "createdAt": "2025-10-04T23:43:11.526Z"
+    },
+    {
+      "id": "rqhp3k7un",
+      "ticketId": "INC4",
+      "content": "hello1\n",
+      "createdAt": "2025-10-04T23:48:46.542Z"
+    },
+    {
+      "id": "l5myprdoe",
+      "ticketId": "INC5",
+      "authorId": "currentUserId",
+      "content": "hhb",
+      "createdAt": "2025-10-04T23:49:31.618Z"
+    },
+    {
+      "id": "fz14231ap",
+      "ticketId": "INC5",
+      "content": "hrello",
+      "createdAt": "2025-10-04T23:54:16.733Z"
+    },
+    {
+      "id": "kwwutl965",
+      "ticketId": "INC5",
+      "content": "hh\n",
+      "createdAt": "2025-10-04T23:58:15.869Z"
+    },
+    {
+      "id": "a7c2kmlrz",
+      "ticketId": "INC6",
+      "content": "hello",
+      "createdAt": "2025-10-05T10:53:07.076Z"
+    },
+    {
+      "id": "qv1zs8bxb",
+      "ticketId": "INC6",
+      "content": "hello",
+      "createdAt": "2025-10-05T10:53:20.159Z"
+    },
+    {
+      "id": "cl5v5fnkb",
+      "ticketId": "INC6",
+      "content": "update please",
+      "createdAt": "2025-10-06T07:30:07.253Z"
+    },
+    {
+      "id": "gmjsg39eh",
+      "ticketId": "INC7",
+      "authorId": 1,
+      "content": "hello",
+      "createdAt": "2025-10-08T03:21:35.201Z"
+    },
+    {
+      "id": "d6tmw7o5h",
+      "ticketId": "INC7",
+      "authorId": 1,
+      "content": "hello",
+      "createdAt": "2025-10-08T13:33:39.776Z"
+    },
+    {
+      "id": "8y2rdk149",
+      "ticketId": "INC7",
+      "authorId": 1,
+      "content": "any update",
+      "createdAt": "2025-10-08T14:55:29.381Z"
+    },
+    {
+      "id": "n4cs2u9ic",
+      "ticketId": "INC1",
+      "authorId": "",
+      "content": "hello",
+      "createdAt": "2025-10-11T05:59:20.432Z"
+    },
+    {
+      "id": "n443oewlw",
+      "ticketId": "INC1",
+      "authorId": "",
+      "content": "hi any update",
+      "createdAt": "2025-10-11T14:35:33.241Z"
     }
   ]
 }

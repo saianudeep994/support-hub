@@ -6,9 +6,11 @@ import { AgentDashboardComponent } from './pages/agent-dashboard/agent-dashboard
 import { TicketDetailComponent } from './pages/ticket-detail/ticket-detail';
 import { AdminPanelComponent } from './pages/admin-panel/admin-panel';
 import { HomeDashboardComponent } from './pages/home/home';
+import { SignupComponent } from './pages/signup/signup';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   {
     path: '',
     component: MainLayoutComponent,
